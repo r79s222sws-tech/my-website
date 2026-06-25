@@ -266,14 +266,14 @@ Website for company
   #projects { background: var(--dark); }
   .projects-header { margin-bottom: 60px; }
   .projects-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
   }
   .project-card {
-    background: var(--card); aspect-ratio: 4/3;
+    background: var(--card); min-height: 340px;
     border: 1px solid var(--border);
     display: flex; align-items: flex-end;
     overflow: hidden; position: relative;
-    transition: transform 0.25s;
+    transition: transform 0.25s; border-radius: 4px;
   }
   .project-card:hover { transform: scale(1.01); }
   .project-placeholder {
@@ -446,7 +446,7 @@ Website for company
     <li><a href="#enquiries">Pricing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="tel:+44XXXXXXXXXX" class="nav-cta">Call Now</a>
+  <a href="tel:07986904805" class="nav-cta">Call Now</a>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -458,7 +458,7 @@ Website for company
   <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#enquiries" onclick="toggleMenu()">Pricing</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="tel:+44XXXXXXXXXX" style="color:var(--volt);">📞 Call Now</a>
+  <a href="tel:07986904805" style="color:var(--volt);">📞 07986 904805</a>
 </div>
 
 <!-- HERO -->
@@ -573,6 +573,15 @@ Website for company
         <h3>⚡ Build Your Quote</h3>
 
         <div class="calc-row">
+          <label>Call-Out Fee — £150 (incl. first hour labour)</label>
+          <div class="calc-row-inner">
+            <button class="calc-btn" onclick="adjust('callout',-1)">−</button>
+            <div class="calc-count" id="callout-count">0</div>
+            <button class="calc-btn" onclick="adjust('callout',1)">+</button>
+          </div>
+        </div>
+
+        <div class="calc-row">
           <label>DB (Consumer Unit) Changes — £600 each</label>
           <div class="calc-row-inner">
             <button class="calc-btn" onclick="adjust('db',-1)">−</button>
@@ -601,6 +610,10 @@ Website for company
 
         <div class="calc-divider"></div>
 
+        <div class="calc-total-row">
+          <span class="calc-total-label">Call-Out</span>
+          <span class="calc-total-val" id="callout-total">£0</span>
+        </div>
         <div class="calc-total-row">
           <span class="calc-total-label">DB Changes</span>
           <span class="calc-total-val" id="db-total">£0</span>
@@ -636,51 +649,30 @@ Website for company
       <p class="section-sub">A snapshot of our recent commercial work across West London. Photos coming soon — send yours over!</p>
     </div>
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-placeholder">⚡</div>
+      <div class="project-card" style="aspect-ratio:unset;min-height:340px;">
+        <img src="/mnt/user-data/uploads/IMG_1119.jpeg" alt="2 Triton Square Refurbishment" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.7;">
         <div class="project-overlay">
-          <div class="project-tag">Commercial</div>
-          <div class="project-title">Office Rewire — W6</div>
+          <div class="project-tag">Commercial Refurb · NW1</div>
+          <div class="project-title">2 Triton Square, Regent's Place</div>
+          <div style="font-size:12px;color:var(--light-grey);margin-top:6px;">Full electrical refurbishment of a high-spec commercial space including suspended ceiling lighting, power distribution and feature pendant installations for a prestigious Regent's Place development.</div>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-placeholder">🚪</div>
+      <div class="project-card" style="aspect-ratio:unset;min-height:340px;">
+        <img src="/mnt/user-data/uploads/IMG_4952.jpeg" alt="Residential Installation Northwood" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.7;">
         <div class="project-overlay">
-          <div class="project-tag">Access Control</div>
-          <div class="project-title">Multi-Door System — W4</div>
+          <div class="project-tag">High-End Residential · HA6</div>
+          <div class="project-title">Private Residence, Northwood</div>
+          <div style="font-size:12px;color:var(--light-grey);margin-top:6px;">Full electrical installation for a large detached home including recessed downlighting throughout, feature pendant chandelier, double-height hallway wiring and multi-room power distribution across two floors.</div>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-placeholder">📹</div>
+      <div class="project-card" style="aspect-ratio:unset;min-height:340px;">
+        <img src="/mnt/user-data/uploads/IMG_3851.jpeg" alt="North London Collegiate School Extension" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.7;">
         <div class="project-overlay">
-          <div class="project-tag">CCTV</div>
-          <div class="project-title">Retail CCTV — W12</div>
+          <div class="project-tag">Education · HA8</div>
+          <div class="project-title">North London Collegiate School Extension</div>
+          <div style="font-size:12px;color:var(--light-grey);margin-top:6px;">Lighting and power installation for a new building extension at North London Collegiate School. Work included conduit installation, LED batten lighting, data and power trunking, and fire detection integration.</div>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-placeholder">🚗</div>
-        <div class="project-overlay">
-          <div class="project-tag">EV Charging</div>
-          <div class="project-title">Car Park Install — TW8</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-placeholder">🔥</div>
-        <div class="project-overlay">
-          <div class="project-tag">Fire Alarm</div>
-          <div class="project-title">Advanced System — W3</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-placeholder">🔍</div>
-        <div class="project-overlay">
-          <div class="project-tag">Testing</div>
-          <div class="project-title">EICR — Commercial Block</div>
-        </div>
-      </div>
-    </div>
-    <div class="projects-upload-note">
-      📷 Real project photos will go here — send them over and we'll update the site
     </div>
   </div>
 </section>
@@ -725,14 +717,14 @@ Website for company
           <div class="contact-icon">📞</div>
           <div class="contact-item-text">
             <div class="label">Phone</div>
-            <div class="value">Add your number here</div>
+            <div class="value"><a href="tel:07986904805" style="color:var(--white);text-decoration:none;">07986 904805</a></div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
           <div class="contact-item-text">
             <div class="label">Email</div>
-            <div class="value">Add your email here</div>
+            <div class="value"><a href="mailto:simpleelectricalsolutions@outlook.com" style="color:var(--white);text-decoration:none;">simpleelectricalsolutions@outlook.com</a></div>
           </div>
         </div>
         <div class="contact-item">
@@ -793,7 +785,7 @@ Website for company
 <!-- EMERGENCY BANNER -->
 <div class="emergency-banner">
   <strong>⚡ 24/7 Emergency Call-Outs</strong>
-  <span>West London electricians available when you need us most — <a href="tel:+44XXXXXXXXXX">Call Now</a></span>
+  <span>West London electricians available when you need us most — <a href="tel:07986904805">07986 904805</a></span>
 </div>
 
 <!-- FOOTER -->
@@ -844,8 +836,8 @@ Website for company
   }
 
   // Calculator
-  const prices = { db: 600, points: 80, ev: 1200 };
-  const counts = { db: 0, points: 0, ev: 0 };
+  const prices = { callout: 150, db: 600, points: 80, ev: 1200 };
+  const counts = { callout: 0, db: 0, points: 0, ev: 0 };
 
   function adjust(key, delta) {
     counts[key] = Math.max(0, counts[key] + delta);
